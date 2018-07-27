@@ -1,0 +1,28 @@
+
+.m-nav{
+	background:#fff;
+	.nav-list{
+		padding-top: 0.4267rem;
+		display: flex;
+		flex-wrap: wrap;
+		li{
+			width: 25%;
+			flex-shrink: 0;
+			margin-bottom: 0.4267rem;
+			img{
+				display: block;
+				width: 1.3333rem;
+				height: 1.3333rem;
+				margin:0 auto;
+			}
+			p{
+				font-size: 0.32rem;
+				color:#333;
+				line-height: 1;
+				padding:0 0.4rem;
+				text-align: center;
+				margin-top: 0.1333rem;
+			}
+		}
+	}
+}

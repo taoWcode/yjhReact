@@ -14,13 +14,37 @@ export default class Footer extends React.Component{
 
 	render(){
 		return (<div className = "m-footer">
-					<div class="u-footer-nav">
+					<div className="u-footer-nav">
 						
-							<NavLink to="/" exact>
+							<NavLink to="/" exact className="nav-item">
 								<i>
-									<img src=""/>
+									<img alt='首页' src={ require('../../assets/icons/icon-home.png') }/>
 								</i>
-								<span></span>
+								<span>首页</span>
+							</NavLink>
+							<NavLink to="/Skipe" exact className="nav-item">
+								<i>
+									<img src={ require('../../assets/icons/icon-group.png') } alt='秒杀' />
+								</i>
+								<span>秒杀</span>
+							</NavLink>
+							<NavLink to="/Category" exact className="nav-item">
+								<i>
+									<img src={ require('../../assets/icons/icon-category.png') } alt='分类'/>
+								</i>
+								<span>分类</span>
+							</NavLink>
+							<NavLink to="/Cart" exact className="nav-item">
+								<i>
+									<img src={ require('../../assets/icons/icon-cart.png') } alt='购物车'/>
+								</i>
+								<span>购物车</span>
+							</NavLink>
+							<NavLink to="/User" exact className="nav-item">
+								<i>
+									<img src={ require('../../assets/icons/icon-user.png') } alt='我的'/>
+								</i>
+								<span>我的</span>
 							</NavLink>
 						
 					</div>
