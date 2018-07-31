@@ -9,7 +9,7 @@ import React from 'react';
 
 class Category extends React.Component{
 	render(){
-		return (<div className = 'g-category'>分类</div>)
+		return (<div className = 'g-category m-page'>分类</div>)
 	}
 }
 

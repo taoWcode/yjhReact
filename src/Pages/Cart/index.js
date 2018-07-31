@@ -9,7 +9,7 @@ import React from 'react';
 
 class Cart extends React.Component{
 	render(){
-		return (<div className = 'g-cart'>购物车</div>)
+		return (<div className = 'g-cart m-page'>购物车</div>)
 	}
 }
 

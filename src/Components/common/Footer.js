@@ -5,7 +5,13 @@
  * @version $Id$
  */
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink,Route,Link } from 'react-router-dom';
+import Index from '../../Pages/Index/index';
+import Skipe from '../../Pages/Skipe/index';
+import Cart from '../../Pages/Cart/index';
+import Category from '../../Pages/Category/index';
+import User from '../../Pages/User/index';
+
 export default class Footer extends React.Component{
 	constructor(props){
 		super(props);
@@ -14,33 +20,34 @@ export default class Footer extends React.Component{
 
 	render(){
 		return (<div className = "m-footer">
+				
 					<div className="u-footer-nav">
 						
-							<NavLink to="/" exact className="nav-item">
+							<Link to="/"  className="nav-item">
 								<i>
 									<img alt='首页' src={ require('../../assets/icons/icon-home.png') }/>
 								</i>
 								<span>首页</span>
-							</NavLink>
-							<NavLink to="/Skipe" exact className="nav-item">
+							</Link>
+							<Link to="/Skipe"  className="nav-item">
 								<i>
 									<img src={ require('../../assets/icons/icon-group.png') } alt='秒杀' />
 								</i>
 								<span>秒杀</span>
-							</NavLink>
-							<NavLink to="/Category" exact className="nav-item">
+							</Link>
+							<NavLink to="/Category"  className="nav-item">
 								<i>
 									<img src={ require('../../assets/icons/icon-category.png') } alt='分类'/>
 								</i>
 								<span>分类</span>
 							</NavLink>
-							<NavLink to="/Cart" exact className="nav-item">
+							<NavLink to="/Cart"  className="nav-item">
 								<i>
 									<img src={ require('../../assets/icons/icon-cart.png') } alt='购物车'/>
 								</i>
 								<span>购物车</span>
 							</NavLink>
-							<NavLink to="/User" exact className="nav-item">
+							<NavLink to="/User"  className="nav-item">
 								<i>
 									<img src={ require('../../assets/icons/icon-user.png') } alt='我的'/>
 								</i>
@@ -48,6 +55,15 @@ export default class Footer extends React.Component{
 							</NavLink>
 						
 					</div>
+					{/*
+						<Route path="/" exact component={Index}/>
+					
+						<Route path="/Skipe"  component={Skipe}/>
+						<Route path="/Category"  component={Category}/>
+						<Route path="/Cart"  component={Cart}/>
+						<Route path="/User"  component={User}/>*/}
+				
+
 				</div>)
 	}
 }

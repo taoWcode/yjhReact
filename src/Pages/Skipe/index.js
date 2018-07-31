@@ -8,7 +8,7 @@ import React from 'react';
 
 class Skipe extends React.Component{
 	render(){
-		return (<div className='g-skipe'>秒杀</div>);
+		return (<div className='g-skipe m-page'>秒杀</div>);
 	}
 }
 

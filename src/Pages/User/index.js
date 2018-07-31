@@ -10,7 +10,7 @@ import React from 'react';
 
 class User extends React.Component{
 	render(){
-		return (<div className = 'g-user'>个人中心</div>)
+		return (<div className = 'g-user m-page'>个人中心</div>)
 	}
 }
 
