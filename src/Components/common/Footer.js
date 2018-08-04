@@ -5,12 +5,8 @@
  * @version $Id$
  */
 import React from 'react';
-import { NavLink,Route,Link } from 'react-router-dom';
-import Index from '../../Pages/Index/index';
-import Skipe from '../../Pages/Skipe/index';
-import Cart from '../../Pages/Cart/index';
-import Category from '../../Pages/Category/index';
-import User from '../../Pages/User/index';
+import { NavLink,Link } from 'react-router-dom';
+
 
 export default class Footer extends React.Component{
 	constructor(props){
@@ -35,7 +31,7 @@ export default class Footer extends React.Component{
 								</i>
 								<span>秒杀</span>
 							</Link>
-							<NavLink to="/Category"  className="nav-item">
+							<NavLink to="/CategoryR"  className="nav-item">
 								<i>
 									<img src={ require('../../assets/icons/icon-category.png') } alt='分类'/>
 								</i>
@@ -55,13 +51,7 @@ export default class Footer extends React.Component{
 							</NavLink>
 						
 					</div>
-					{/*
-						<Route path="/" exact component={Index}/>
 					
-						<Route path="/Skipe"  component={Skipe}/>
-						<Route path="/Category"  component={Category}/>
-						<Route path="/Cart"  component={Cart}/>
-						<Route path="/User"  component={User}/>*/}
 				
 
 				</div>)

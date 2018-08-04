@@ -6,8 +6,8 @@
  */
 import React from 'react';
 import './index.scss';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Index from '../Pages/Index/index.js';
+import { BrowserRouter as Router} from 'react-router-dom';
+import MyRouter from '../Router/index';
 
 export default class App extends React.Component{
 	render(){
@@ -15,8 +15,9 @@ export default class App extends React.Component{
 			<Router>
 				<div className="yongjiuhui-app">
 					
-					<Route path="/"  component = {Index} />
+					<MyRouter/>
 				</div>
+
 			</Router>
 			)
 	}

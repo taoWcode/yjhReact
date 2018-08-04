@@ -1,0 +1,16 @@
+.g-category{
+	.left-side{
+		float:left;
+		width: 2.4rem;
+		background: #fff;
+		height: 100%;
+		overflow-y:auto;
+	}
+	.right-side{
+		position: relative;
+		margin-left: 2.6667rem;
+		overflow-x:hidden;
+		overflow-y:auto;
+		height: 100%; 
+	}
+}

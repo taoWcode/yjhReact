@@ -7,9 +7,10 @@
 
 import React from 'react';
 import './index.scss';
+import {Route} from 'react-router-dom';
 import Footer from '../../Components/common/Footer.js';
-import CateTab from '../../Components/CateTab/index.js';
-import CateList from '../../Components/CateList/index.js';
+import CateTab from '../../Components/CateTabR/index.js';
+import CateList from '../../Components/CateListR/index.js';
 
 class Category extends React.Component{
 	constructor(props){
@@ -18,7 +19,7 @@ class Category extends React.Component{
 			cate_id:this.props.match.params.cate_id || 0,
 			tabData:tempTabCate,
 			s_cate_data:[],
-			
+			word:'哈哈'
 		};
 		this.tabCategory = this.tabCategory.bind(this);
 	}
@@ -44,8 +45,8 @@ class Category extends React.Component{
 							<CateTab tabFun = {this.tabCategory.bind(this)} tabData={this.state.tabData}/>
 						</div>
 						<div className="right-side">
-							<CateList cateList={this.state.s_cate_data}/>
-							
+							{/*<CateList cateList={this.state.s_cate_data}/>*/}
+							<Route path="/categoryR/:cid" component={CateList}/>
 						</div>
 						
 					</div>

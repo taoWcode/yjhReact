@@ -1,0 +1,50 @@
+.m-category-list{
+	height: 100%;
+	width: 100%;
+	overflow-y:auto;
+	.cate-banner .banner-link{
+		display: block;
+		margin-right: 0.2667rem;
+		img{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+	.category-list{
+		width: 100%;
+		padding:0.2667rem;
+		background: #fff;
+		margin-top: 0.4rem;
+		display: flex;
+		flex-wrap: wrap;
+		overflow: hidden;
+		li{
+			width: 33.33%;
+			padding:0.1333rem;
+			flex-shrink: 0;
+			
+			.link{
+				display: block;
+				.pic{
+					display: block;
+					height: 1.8667rem;
+					width: 1.8667rem;
+					overflow:hidden;
+					margin:0 auto;
+					img{
+						height: 100%;
+						width: 100%;
+						display: block;
+					}
+				}
+				.cate-name{
+					font-size: 0.32rem;
+					color:#333;
+					text-align: center;
+					margin-top: 0.2133rem;
+				}
+			}
+		}
+	}
+}
