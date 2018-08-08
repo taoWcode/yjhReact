@@ -18,7 +18,7 @@ const myRouter = ()=>{
 	return (
 		<Switch>
 			<Route path="/" exact component = {Index}/>
-			<Route path="/category" component = {Category}/>
+			<Route path="/category/:cid" component = {Category}/>
 			<Route path="/categoryR" component = {CategoryR}/>
 			<Route path="/user"  component = {User}/>
 			<Route path="/skipe" component = {Skipe}/>

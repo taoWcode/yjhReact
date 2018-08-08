@@ -31,6 +31,8 @@ class Category extends React.Component{
 		}))
 		
 	}
+
+
 	componentDidMount(){
 		this.setState(prevdata => ({
 			s_cate_data:cateList[prevdata.cate_id],
@@ -46,7 +48,7 @@ class Category extends React.Component{
 						</div>
 						<div className="right-side">
 							{/*<CateList cateList={this.state.s_cate_data}/>*/}
-							<Route path="/categoryR/:cid" component={CateList}/>
+							<Route path="/categoryR/:cid"  component={CateList}/>
 						</div>
 						
 					</div>
@@ -57,15 +59,15 @@ class Category extends React.Component{
 
 const tempTabCate = [
 	{
-		cate_id:'1',
+		cate_id:'0',
 		cate_name:'推荐分类'
 	},
 	{
-		cate_id:'2',
+		cate_id:'1',
 		cate_name:'移动数码'
 	},
 	{
-		cate_id:'3',
+		cate_id:'2',
 		cate_name:'母婴产品'
 	},
 ]

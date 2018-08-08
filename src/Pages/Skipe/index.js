@@ -5,10 +5,19 @@
  * @version $Id$
  */
 import React from 'react';
-
+import Footer from '../../Components/common/Footer';
+import Header from '../../Components/common/Header';
 class Skipe extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={}
+  }
 	render(){
-		return (<div className='g-skipe m-page'>秒杀</div>);
+		return (<div className='g-skipe m-page'>
+            <Header title="秒杀" canBack = 'false'/>
+            <div className="m-main"></div>
+            <Footer history={this.props.history} sactive="Skipe"></Footer>
+          </div>);
 	}
 }
 

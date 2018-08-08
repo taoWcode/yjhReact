@@ -23,7 +23,7 @@ class CateTab extends React.Component{
 					{_t.props.tabData.map((item,idx) => (
 
 							<li className="after_line" key={idx}>
-								<NavLink className="menu-a s_oveflow" to={"/categoryR/" + item.cate_id} >{item.cate_name}</NavLink>
+								<NavLink activeClassName="s-active" exact className="menu-a s_oveflow" to={"/category/" + item.cate_id} >{item.cate_name}</NavLink>
 							</li>
 
 						))}

@@ -30,7 +30,7 @@ class Index extends React.Component{
 	render(){
 	
 		return (<div className='g-index m-page  bgf8'>
-					<div className = 'm-main fixed-bottom'>
+					<div className = 'm-main'>
 						<Nav/>
 							{
 								this.state.rmdData.map((item,idx) => (
@@ -39,7 +39,7 @@ class Index extends React.Component{
 							}
 							<Guide guiData={this.state.guiData} />
 					</div>	
-					<Footer/>
+					<Footer history = {this.props.history} sactive="Index"/>
 				</div>);
 	}
 }
