@@ -7,6 +7,7 @@
 import React from 'react';
 import Footer from '../../Components/common/Footer';
 import Header from '../../Components/common/Header';
+import Demo from '../../Components/ListView/index';
 class Skipe extends React.Component{
   constructor(props){
     super(props);
@@ -15,7 +16,9 @@ class Skipe extends React.Component{
 	render(){
 		return (<div className='g-skipe m-page'>
             <Header title="秒杀" canBack = 'false'/>
-            <div className="m-main"></div>
+            <div className="m-main">
+              <Demo/>
+            </div>
             <Footer history={this.props.history} sactive="Skipe"></Footer>
           </div>);
 	}

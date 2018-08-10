@@ -234,7 +234,8 @@ textarea {
   /* height: 1.3333rem; */
   background: #fff;
   z-index: 999;
-  box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, .05);
+  /* box-shadow: 0 -1px 3px 1px rgba(0, 0, 0, .05); */
+  border-bottom:1PX solid #eee;
 }
 
 .u-footer-nav {
@@ -287,7 +288,8 @@ textarea {
 .m-header {
   flex-shrink: 0;
   position: relative;
-  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .05);
+  /* box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .05); */
+  border-bottom:1PX solid #eee;
 }
 
 .m-header .left,
@@ -322,4 +324,14 @@ textarea {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.tempDiv{
+  display:block;
+  width:100%;
+  background:#eee;
+  height:0;
+}
+* {
+  touch-action: none;
 }

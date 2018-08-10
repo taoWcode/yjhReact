@@ -10,27 +10,32 @@ import Nav from '../../Components/Nav/index.js';
 import Footer from '../../Components/common/Footer.js';
 import RmdGoods from '../../Components/RmdGoods/index.js';
 import Guide from '../../Components/Guide/index.js';
+import BasicCarousel from '../../Components/Carousel/basic.js';
+import TempDiv from '../../Components/common/TempDiv';
 
 class Index extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
 			rmdData:[],
-			guiData:[],
+      guiData:[],
+      calData:[]
 		}
 	}
 
 	componentDidMount(){
 		this.setState({
 			rmdData:tempRmdData,
-			guiData:tempGuiData,
+      guiData:tempGuiData,
+      calData:calData
 		})
 	}
 
 	render(){
-	
+
 		return (<div className='g-index m-page  bgf8'>
 					<div className = 'm-main'>
+            { this.state.calData.length > 0 ? (<BasicCarousel carData = {this.state.calData} wvh="50%"/>):(<TempDiv pt="50%"/>)}
 						<Nav/>
 							{
 								this.state.rmdData.map((item,idx) => (
@@ -44,7 +49,20 @@ class Index extends React.Component{
 	}
 }
 
-
+const calData = [
+  {
+      tar:'/',
+      imgUrl:'https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E7%BB%84%2031%402x.png',
+  },
+  {
+    tar:'/Category/0',
+    imgUrl:'https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E7%BB%84%2031%402x.png',
+  },
+  {
+    tar:'/Cart',
+    imgUrl:'https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E7%BB%84%2031%402x.png',
+  }
+]
 const tempRmdData = [{
 	title:"电子数码",
 	title_english:'DIGITAL CAMERA',
