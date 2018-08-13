@@ -14,6 +14,7 @@ import Category from '../Pages/Category/index';
 import CategoryR from '../Pages/CategoryR/index';
 import User from '../Pages/User/index';
 import PageError from '../Pages/Error/index';
+import GoodsList from '../Pages/GoodsList/index';
 const myRouter = ()=>{
 	return (
 		<Switch>
@@ -23,6 +24,7 @@ const myRouter = ()=>{
 			<Route path="/user"  component = {User}/>
 			<Route path="/skipe" component = {Skipe}/>
 			<Route path="/cart" component = {Cart}/>
+      <Route path ="/goodslist/:sid" component= {GoodsList}/>
 			<Route path="*" component={PageError}/>
 		</Switch>
 		)

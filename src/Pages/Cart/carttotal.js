@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Checkbox } from 'antd-mobile';
+import { Checkbox, Button } from 'antd-mobile';
 
 const CartTotal = (props) => (
   <div className = "m-cart-total">
@@ -17,13 +17,13 @@ const CartTotal = (props) => (
                       </div>)
     
     }
-    { props.edit || (<div className="opera-btn btn-submit">去结算</div>)
+    { props.edit || (<div className="opera-btn btn-submit" onClick = {props.submitOrder}>去结算</div>)
     
     }
     
     { props.edit && (<div className="edit-group">
       <div className="opera-btn btn-collect">移至收藏</div>
-      <div className="opera-btn btn-delete">删除</div>
+      <Button className="opera-btn btn-delete" onClick = {props.deleteGoods}>删除</Button>
       
     </div>)
     

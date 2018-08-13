@@ -6,11 +6,12 @@
  */
 
 import React from 'react';
-import { Toast } from 'antd-mobile';
+import { Toast, Modal } from 'antd-mobile';
 import Footer from '../../Components/common/Footer';
 import Header from '../../Components/common/Header';
 import CartList from './Cart.js';
-import CartTotal from './carttotal.js'
+import CartTotal from './carttotal.js';
+import EmptyCart from './empty.js';
 import './index.scss';
 
 class Cart extends React.Component{
@@ -21,7 +22,8 @@ class Cart extends React.Component{
          total:0,
          cartList:[],
          selectNum:0,
-         showEdit:false
+         showEdit:false,
+         empty:false
     };
 
     this.changeSelect = this.changeSelect.bind(this);
@@ -29,6 +31,30 @@ class Cart extends React.Component{
     this.addNum = this.addNum.bind(this);
     this.reduceNum = this.reduceNum.bind(this);
     this.showEditBlock = this.showEditBlock.bind(this);
+    this.deleteGoods = this.deleteGoods.bind(this);
+    this.submitOrder = this.submitOrder.bind(this);
+  }
+  submitOrder(){
+    const list = this.state.cartList,
+          selectStr = [];
+    list.forEach((item) => {
+          if(item.selected === '1'){
+
+            var goodsItem = {};
+            goodsItem.id = item.id;
+            goodsItem.spec_id = item.spec_id;
+            goodsItem.num = item.num;
+            selectStr.push(goodsItem);
+          
+          }
+    });
+
+    if(selectStr.length < 1){
+      Toast("你没有选择商品，不能提交订单");
+    }else{
+      console.log(selectStr);
+      console.log( '商品提交生成订单');
+    }
   }
   showEditBlock(){
     this.setState((prevState) => ({
@@ -37,28 +63,43 @@ class Cart extends React.Component{
   }
   //删除操作
   deleteGoods(){
-    const list = this.state.cartList,
-          deleteStr = [];
-    for (let i = 0; i < list.length; i++) {
-        if(list[i].selected === '1'){
-          deleteStr.push(list[i].id);
-          list.splice(i,1);
-          i--;
-        }
-    }
+    Modal.alert('确认操作','你确定要删除商品吗？',[
+    {text:'确定',onPress: ()=>{
+      const list = this.state.cartList,
+      deleteStr = [];
+      for (let i = 0; i < list.length; i++) {
+          if(list[i].selected === '1'){
+            deleteStr.push(list[i].id);
+            list.splice(i,1);
+            --i;
+          }
+      }
+
+      this.setState({
+        cartList:list,
+        total:0,
+        totalPrice:0,
+      },() => {
+        console.log("删除商品ID为：" + deleteStr.join(',')); 
+      })
+    }},
+    {text:'取消'}
+  ]
+  )
+   
   }
   //单件商品数量加操作
   addNum(e){
     const tar = e.target,
           id  = tar.getAttribute('data-id'),
-          max_buy = parseInt(tar.getAttribute('data-max')),
-          step = parseInt(tar.getAttribute('data-step')),
+          max_buy = parseInt(tar.getAttribute('data-max'),10),
+          step = parseInt(tar.getAttribute('data-step'),10),
           list = this.state.cartList;
     let num = 0,
         total = 0,
         totalPrice = 0;
     list.forEach( (item) => {
-        if(id == item.id){
+        if(id === item.id){
             num = item.num + step;
             if(num > max_buy){
               num = max_buy;
@@ -85,14 +126,14 @@ class Cart extends React.Component{
     
     const tar = e.target,
           id  = tar.getAttribute('data-id'),
-          min_buy = parseInt(tar.getAttribute('data-min')),
-          step = parseInt(tar.getAttribute('data-step')),
+          min_buy = parseInt(tar.getAttribute('data-min'),10),
+          step = parseInt(tar.getAttribute('data-step'),10),
           list = this.state.cartList;
     let num = 0,
         total = 0,
         totalPrice = 0;
     list.forEach( (item) => {
-        if(id == item.id){
+        if(id === item.id){
             num = item.num - step;
             if(num < min_buy){
               num = min_buy;
@@ -191,7 +232,8 @@ class Cart extends React.Component{
           total:tempCart.total,
           totalPrice:tempCart.total_price,
           cartList:tempCart.list,
-          selectNum:tempCart.select_num
+          selectNum:tempCart.select_num,
+          empty:(tempCart.list.length > 0 ? false : true)
         })
   }
 
@@ -202,10 +244,11 @@ class Cart extends React.Component{
            <b onClick = {this.showEditBlock} className = {this.state.showEdit ? 'btn-edit s-active' : 'btn-edit'}>{this.state.showEdit ? '完成':'编辑全部'}</b>
         </div>
         <div className="m-main pt8" ref="mainBox">
-            { this.state.cartData !== null && <CartList cartList = { this.state.cartList } 
+            { this.state.empty ?(<EmptyCart/>)  : (<CartList cartList = { this.state.cartList } 
                                                         reduceNum = { this.reduceNum } 
                                                         addNum = { this.addNum } 
-                                                        changeSelect = { this.changeSelect }/>}
+                                                        changeSelect = { this.changeSelect }/>)
+                                                        }
         </div>
         <CartTotal 
           totalPrice = {this.state.totalPrice} 
@@ -214,8 +257,10 @@ class Cart extends React.Component{
           cartTotal = {this.state.cartList.length}
           changeSelect = {this.selectAll}
           edit = {this.state.showEdit}
+          deleteGoods = {this.deleteGoods}
+          submitOrder = {this.submitOrder}
           />
-       <Footer history = {this.props.history} sactive="Cart"/>
+     <Footer history = {this.props.history} sactive="Cart"/>
     </div>)
 	}
 }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Checkbox, Stepper } from 'antd-mobile';
+import { Checkbox} from 'antd-mobile';
 
 const CartList = (props) => (
   <div className = 'm-cartlist'>

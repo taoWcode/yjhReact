@@ -217,3 +217,28 @@
     }
   }
 }
+
+.m-empty-cart{
+  padding:1.3333rem 0;
+  .pic{
+    width:2.96rem;
+    height: auto;
+    display: block;
+    margin:0 auto;
+    img{
+      display: block;
+      width:100%;
+      height: auto;
+    }
+  }
+  .btn-new{
+    display: block;
+    width:3.2rem;
+    line-height: .8533rem;
+    text-align: center;
+    color:#fff;
+    background: #C72420;
+    margin: .5333rem auto 0;
+    font-size: 14px;
+  }
+}
