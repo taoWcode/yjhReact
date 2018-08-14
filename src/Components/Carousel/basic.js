@@ -12,23 +12,45 @@ const BasicCarousel = (props) => (
         minHeight:'100px'
       }}
       >
-        {props.carData.map((item,idx) => (
-          <Link
-            style = {{
-              display:'block',
-              width:'100%',
-              paddingTop:props.wvh
-            }}
-            to = {item.tar}
-            key = {idx}
-          >
-            <img 
-              src={item.imgUrl}
-              alt = {item.alt || ''}
-              style = {styleImg}
-            />
-          </Link>
-        ))}
+        {props.carData.map((item,idx) => {
+          if(item.tar !== undefined){
+              return (
+                        <Link
+                          style = {{
+                            display:'block',
+                            width:'100%',
+                            paddingTop:props.wvh
+                          }}
+                          to = {item.tar}
+                          key = {idx}
+                        >
+                          <img 
+                            src={item.imgUrl}
+                            alt = {item.alt || ''}
+                            style = {styleImg}
+                          />
+                        </Link>
+              )
+          }else{
+              return (
+                        <div
+                          style = {{
+                            display:'block',
+                            width:'100%',
+                            paddingTop:props.wvh
+                          }}
+                          key = {idx}
+                        >
+                          <img 
+                            src={item.imgUrl}
+                            alt = {item.alt || ''}
+                            style = {styleImg}
+                          />
+                        </div>
+              )
+          }
+        }
+      )}
       </Carousel>
    
 );

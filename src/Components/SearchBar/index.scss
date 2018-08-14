@@ -1,0 +1,25 @@
+.m-search-bar{
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding:.1333rem .2667rem;
+  background: #fff;
+  .left-search{
+    flex:1;
+    border-radius: 999px;
+    background: #f8f8f8;
+    padding-left:.2667rem;
+    .temp-search{
+      color:#999;
+      font-size: 14px;
+      display: block;
+      line-height: .88rem;
+     
+    }
+    .icon-search{
+      padding-right: 3px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

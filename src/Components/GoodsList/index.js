@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { ListView } from 'antd-mobile';
+import './index.scss';
 
 
 const MyBody  = (props) => (
@@ -186,7 +187,7 @@ class GoodsList extends React.Component{
   }
 
   componentDidMount(){
-    const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.refs.lv).offsetTop - 50;
+    const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.refs.lv).offsetTop;
     setTimeout(()=>{
       genData();
     
@@ -199,19 +200,7 @@ class GoodsList extends React.Component{
   }
 
   render(){
-    const separator = (sectionID, rowID) => (
-      <div
-        key = {`${sectionID}-${rowID}`}
-        style = {{
-          backgroundColor: '#f5f5f9',
-          height:8,
-          borderTop:'1px solid #ececed',
-          borderBottom:'1px solid #ececed'
-        }}
-      >
-      </div>
-    );
-
+    
     let index =data.length - 10;
     const row = (rowData, sectionID, rowID) => {
      
@@ -221,50 +210,33 @@ class GoodsList extends React.Component{
       }
       const obj = data[index++];
       return (
-        <div key = {rowID} style={{padding: '0 15px'}}>
-          <div 
-            style = {{
-              lineHeight: '50px',
-              color:'#888',
-              fontSize:'18',
-              borderBottom: '1px solid #f6f6f6'
-            }}
-          >{obj.title}</div>
-          <div style = {{
-            display: 'flex',
-            padding: '15px 0',
-          }}>
-            <img style={{
-              height: '64px',
-              marginRight: '15px'
-            }}
-              src = {obj.img}
-              alt = ''
-            />
-            <div style={{lineHeight:1}}>
-              <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>
-                {obj.des}
-              </div>
-              <div>
-                <span style={{fontSize: '30px', color: '#ff6E27'}}>35</span>&yen; {rowID}
-              </div>
+        <div className="goods-item" key={rowID}>
+          <Link to="/" className="link">
+            <div className="pic">
+              <img src={ obj.img } alt=""/>
             </div>
-          </div>
+            <div className="info">
+              <p className="title s_overflow2">{ obj.title }</p>
+              <p className="info-bottom">
+                <span className="shop-price">&yen;&nbsp;100.00</span>
+                <span className="saled">已付款：7689</span>
+              </p>
+            </div>
+          </Link>
         </div>
+        
       )
     }
     return (
       <ListView
       ref = 'lv'
       dataSource = {this.state.dataSource}
-      
-      renderFooter = { () => (<div style={{padding:'30px',textAlign:'center'}}>
-        { this.state.isLoading ? 'Loading...' : 'Loaded' }
+      renderFooter = { () => (<div style={{padding:'10px',textAlign:'center'}}>
+        { this.state.isLoading ? 'Loading...' : '' }
       </div>) }
     
       renderBodyComponent = {() => <MyBody/>}
       renderRow = {row}
-      renderSeparator = {separator}
       style = {{
         height:this.state.height,
         overflow:'auto'
@@ -272,7 +244,7 @@ class GoodsList extends React.Component{
       pageSize = {4} //每次渲染四条数据
       scrollRenderAheaderDistance = {500}
       onEndReached = {this.onEndReached}
-      onEndReachedThreshold = {10}
+      onEndReachedThreshold = {150}
       >
         
       </ListView>

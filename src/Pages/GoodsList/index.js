@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './index.scss';
 import Header from '../../Components/common/Header';
-import TempDiv from '../../Components/common/TempDiv';
+import MySearchBar from '../../Components/SearchBar/index';
 import SortTab from './sortTab';
 import Filter from './filter';
 import List from '../../Components/GoodsList/index';
@@ -40,6 +39,7 @@ class GoodsList extends React.Component{
   render(){
     return (<div className="g-goodslist m-page">
               <Header title="商品列表" canBack = "1"/>
+              <MySearchBar/>
               <SortTab sort = {this.state.sort} goodsSort = {this.goodsSort} showFilter = {this.showFilter}/>
               <div className="m-main">
                 <List/>
