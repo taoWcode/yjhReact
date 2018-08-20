@@ -58,6 +58,10 @@ export default class GoodsDetail extends React.Component{
               <div className="m-simple-box">
                 <Comment/>
               </div>
+
+              <div className="m-simple-box">
+                 <Detail/>
+              </div>
           </div>
           <DetailBottom isShowSpec = {this.isShowSpec}/>
           <ServiceSheet showService = {this.state.showService} isShowService = {this.isShowService}/>
@@ -66,7 +70,25 @@ export default class GoodsDetail extends React.Component{
   }
 }
 
-
+const Detail = (props) => (
+  <div className = 'm-detail-params'>
+      <div className="tab">
+         <span className = "tab-item s-active">商品详情</span>
+         <span className = "tab-item">商品参数</span>
+         
+      </div>
+      <div className="content">
+            <div className="detail-content">
+              <p className="title">商品详情</p>
+              <div className="detail">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto hic quia obcaecati doloribus ipsam dignissimos ratione quo fugiat possimus, tenetur quod porro cupiditate, autem aliquam? Dolore tempore inventore dolorum ex.</div>
+            </div>
+            <div className="params-content">
+              <p className="title">商品参数</p>
+              <div className = "detail">Lorem</div>
+            </div>
+         </div>
+  </div>
+)
 const ServiceSheet = (props) => (
   <div className = {props.showService ? 'm-service-jump s-show':'m-service-jump'}>
       <span className="m-mask-layer" onClick={props.isShowService}></span>

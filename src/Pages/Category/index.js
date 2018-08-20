@@ -76,12 +76,14 @@ const cateList = {
     clist: [
       {
         tar: "/",
+        sid:'1',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "手机"
       },
       {
         tar: "/",
+        sid:'2',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "单反"
@@ -98,12 +100,14 @@ const cateList = {
     clist: [
       {
         tar: "/",
+        sid:'3',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "轰炸机"
       },
       {
         tar: "/",
+        sid:'4',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "坦克"
@@ -119,12 +123,14 @@ const cateList = {
     clist: [
       {
         tar: "/",
+        sid:'5',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "防辐射"
       },
       {
         tar: "/",
+        sid:'6',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "奶嘴"
@@ -140,12 +146,14 @@ const cateList = {
     clist: [
       {
         tar: "/",
+        sid:'7',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "图书"
       },
       {
         tar: "/",
+        sid:'8',
         imgUrl:
           "https://raw.githubusercontent.com/taoWcode/junshop_img/master/images/%E5%9B%BE%E5%B1%82%2046%402x.png",
         s_cate_name: "生鲜"

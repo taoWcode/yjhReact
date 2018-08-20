@@ -7,7 +7,6 @@ class FilterBox extends React.Component{
     this.state = {
       selectedStr:[],
       fdata:[],
-      adata:[]
     }
     this.selectAttr = this.selectAttr.bind(this);
     this.resetAttr = this.resetAttr.bind(this);
@@ -49,10 +48,15 @@ class FilterBox extends React.Component{
   }
   //重置属性
   resetAttr(){
-   
+      const list = this.state.fdata;
+      list.forEach((item, idx) => {
+          if(item.selected === undefined || item.selected ==='1'){
+            item.selected ='0'
+          }
+      })
       this.setState({
         selectedStr:[],
-        fdata:[...this.state.adata]
+        fdata:list
       })
   }
   //选择属性
@@ -90,7 +94,6 @@ class FilterBox extends React.Component{
   componentWillReceiveProps(nextProps){
     this.setState({
       fdata:[...nextProps.fdata],
-      adata:[...nextProps.fdata]
     })
   }
   render(){

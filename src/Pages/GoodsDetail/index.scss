@@ -479,3 +479,42 @@
     }
   }
 }
+
+.m-detail-params{
+  padding:0 .2667rem .2667rem .2667rem;
+  .tab{
+    display: flex;
+    border-bottom:1px solid #eee;
+    margin-bottom: .2667rem;
+    .tab-item{
+      flex:1;
+      text-align: center;
+      font-size: .3733rem;
+      color:#333;
+      line-height: 1.1467rem;
+      position: relative;
+      &.s-active:after{
+        content:"";
+        position: absolute;
+        bottom:-1px;
+        height: 2px;
+        background:#E82F0B;
+        width:45%;
+        left:27.5%;
+      }
+    }
+  }
+  .detail-content,.params-content{
+    padding:10px 0;
+    .title{
+      font-size:12px;
+      color:#333;
+      
+    }
+    .detail{
+      font-size:12px;
+      color:#666;
+      margin-top:10px;
+    }
+  }
+}

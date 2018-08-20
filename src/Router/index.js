@@ -28,7 +28,7 @@ const myRouter = ()=>{
 			<Route path="/cart" component = {Cart}/>
       <Route path="/search" component = {Search}/>
       <Route path="/goodsdetail" component = {GoodsDetail}/>
-      <Route path ="/goodslist/:sid" component= {GoodsList}/>
+      <Route path ="/goodslist/:sid/:keyword" component= {GoodsList}/>
 			<Route path="*" component={PageError}/>
 		</Switch>
 		)

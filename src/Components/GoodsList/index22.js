@@ -140,6 +140,9 @@ function genData(pIndex = 0){
 
     sectionIDs = [...sectionIDs];
     rowIDs = [...rowIDs];
+    console.log(dataBlobs);
+    console.log(sectionIDs);
+    console.log(rowIDs);
     
 }
 
@@ -159,73 +162,40 @@ class GoodsList extends React.Component{
     })
   
     this.state = {
-      NUM_SECTIONS:5,
-      NUM_ROWS_PER_SECTION:2,
-      dataBlobs:{},
-      sectionIDs:[],
-      rowIDs:[],
-      pIndex:0,
       dataSource,
       isLoading:true,
       height:document.documentElement.clientHeight * 3 / 4,
     }
     this.onEndReached = this.onEndReached.bind(this);
-    this.genData = this.genData.bind(this);
 
-  }
-
-  genData(){
-    const _t = this;
-    const _ts = this.state;
-    for (let i = 0; i < _ts.NUM_SECTIONS; i++){
-      const ii = (_ts.pIndex * _ts.NUM_SECTIONS) + i;
-      const sectionName = `Section ${ii}`;
-      _ts.sectionIDs.push(sectionName);//['Section 0','Section 1','Section 2',...'Section 4']
-      _ts.dataBlobs[sectionName] = sectionName;//{'Section 0':'Section 0'}
-      _ts.rowIDs[ii] = [];
-      for (let jj = 0; jj < _ts.NUM_ROWS_PER_SECTION; jj++) {
-        const rowName = `S${ii}, R${jj}`;
-        _ts.rowIDs[ii].push(rowName);//[ ['S0 R0','S0,R1',...,'S0 R4'],['S1 R0',...,'S1 R4'],...,['S4 R0',...,'S4 R4'] ]
-        _ts.dataBlobs[rowName] = rowName;//{'Section 0': 'Section 0', 'S0 R0':'S0 R0', 'S0 R1':'S0 R1',...}
-      }
-    }
-   
-    this.setState({
-      sectionIDs:_ts.sectionIDs,
-      rowIDs:_ts.rowIDs,
-      pIndex:++_ts.pIndex
-    });
   }
 
   onEndReached(){
-
-    const _t = this;
     if (this.state.isLoading && !this.state.hasMore){
       return;
     }
     data = [...data,...tempData];
-    console.log('触发');
+
     this.setState({
       isLoading:true
     });
 
     setTimeout(() => {
-      
-      _t.genData();
+      genData(++pageIndex);
       this.setState({
-        dataSource:this.state.dataSource.cloneWithRowsAndSections(_t.state.dataBlobs,_t.state.sectionIDs,_t.state.rowIDs),
+        dataSource:this.state.dataSource.cloneWithRowsAndSections(dataBlobs,sectionIDs,rowIDs),
         isLoading:false
       })
     },1000)
   }
 
   componentDidMount(){
-    const _t = this;
     const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.refs.lv).offsetTop;
     setTimeout(()=>{
-      _t.genData();
-      _t.setState({
-        dataSource:_t.state.dataSource.cloneWithRowsAndSections(_t.state.dataBlobs, _t.state.sectionIDs, _t.state.rowIDs),
+      genData();
+     
+      this.setState({
+        dataSource:this.state.dataSource.cloneWithRowsAndSections(dataBlobs, sectionIDs, rowIDs),
         isLoading:false,
         height:hei
       })
@@ -275,7 +245,7 @@ class GoodsList extends React.Component{
         overflow:'auto'
       }}
       pageSize = {4} //每次渲染四条数据
-      scrollRenderAheaderDistance = {1000}
+      scrollRenderAheaderDistance = {500}
       onEndReached = {this.onEndReached}
       onEndReachedThreshold = {150}
       >

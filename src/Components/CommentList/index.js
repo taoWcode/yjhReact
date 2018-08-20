@@ -31,7 +31,7 @@ export default class CommentList extends React.Component{
                 <img src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png" alt=""/>
                 <img src="https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png" alt=""/>
             </div>
-            <p className="params">银色&nbsp;128G</p>
+            <p className="params">颜色:圆领-白色 尺码:均码</p>
         </div>
       </div>
     </div>

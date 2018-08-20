@@ -26,7 +26,7 @@ const CateList = (props) => (
 		<ul className = "category-list">
 			{(props.cateList.clist !== '') && (props.cateList.clist!== undefined) &&props.cateList.clist.map((item,idx) => (
 				<li key={idx}>
-					<Link to="item.tar" className="link">
+					<Link to={`/goodslist/${item.sid}/''`} className="link">
 						<div className = "pic">
 							<img src={item.imgUrl} alt="goods"/>
 						</div>

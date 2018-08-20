@@ -13,6 +13,7 @@ class GoodsList extends React.Component{
       sort:'',
       empty:false,
       showFilter:false,
+      page:1,
       fdata:[]
     }
     this.goodsSort = this.goodsSort.bind(this);
@@ -32,8 +33,14 @@ class GoodsList extends React.Component{
     }))
   }
   componentDidMount(){
+    
+    const data = {};
+    data.sid = this.props.match.params.sid;
+    data.keyword = this.props.match.params.keyword;
+    data.page = this.state.page;
     this.setState({
-      fdata:fdata
+      fdata:fdata,
+      page:++this.state.page
     })
   }
   render(){
